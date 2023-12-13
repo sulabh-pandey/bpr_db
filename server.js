@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 const client = new Client({
-    host: "demopostserver.postgres.database.azure.com" || process.env.DATABASE_HOST,
+    host: "44.227.217.144" || process.env.DATABASE_HOST,
     user: "demousertaciti@demopostserver" || process.env.DATABASE_USER,
     port: 5432 || process.env.DATABASE_PORT,
     password: "Dpcon123456@" || process.env.DATABASE_PASSWORD,
