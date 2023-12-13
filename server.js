@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(cors());
 
 const client = new Client({
-    host: "44.227.217.144" || process.env.DATABASE_HOST,
-    user: "demousertaciti@demopostserver" || process.env.DATABASE_USER,
-    port: 5432 || process.env.DATABASE_PORT,
-    password: "Dpcon123456@" || process.env.DATABASE_PASSWORD,
-    database: "BPR_DB" || process.env.DATABASE_NAME,
+    host: process.env.DATABASE_HOST || "44.227.217.144",
+    user: process.env.DATABASE_USER,
+    port: process.env.DATABASE_PORT,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
     ssl: false
 });
 
