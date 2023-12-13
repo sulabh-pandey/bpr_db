@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 const client = new Client({
-    host: process.env.DATABASE_HOST,
+    host: process.env.DATABASE_HOST1,
     user: process.env.DATABASE_USER,
     port: process.env.DATABASE_PORT,
     password: process.env.DATABASE_PASSWORD,
