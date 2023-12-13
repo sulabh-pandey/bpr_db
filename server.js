@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 const client = new Client({
-    host: process.env.DATABASE_HOST || "44.227.217.144",
+    host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     port: process.env.DATABASE_PORT,
     password: process.env.DATABASE_PASSWORD,
@@ -18,7 +18,9 @@ const client = new Client({
     ssl: false
 });
 
-client.connect();
+client.connect()
+.then(() => console.log('Database connected'))
+.catch(err => console.error('Error connecting to database', err));
 
 //Check Server is on
 app.get('/bpr_db', (req, res) => {
