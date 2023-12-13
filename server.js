@@ -19,18 +19,26 @@ const client = new Client({
 });
 
 client.connect()
-    .then(() => console.log('Database connected'))
-    .catch(err => console.error('Error connecting to database', err));
+.then(() => console.log('Database connected'))
+.catch(err => console.error('Error connecting to database', err));
 
 //Check Server is on
 app.get('/bpr_db', (req, res) => {
     return res.json("From Backend side");
 });
 
-// Process Data query
-app.get('/bpr_db/:indType', (req, res) => {
+//Process Data query
+// app.get('/bpr_db/:indType', (req, res) => {
+//     const tbl_name = req.params.indType;
+//     const sql = `SELECT * FROM ${tbl_name}`;
+//     client.query(sql, (err, data) => {
+//         if (err) return res.json(err);
+//         return res.json(data);
+//     });
+// })
+app.get('/bpr_db/r2r', (req, res) => {
     const tbl_name = req.params.indType;
-    const sql = `SELECT * FROM ${tbl_name}`;
+    const sql = `SELECT * FROM r2r`;
     client.query(sql, (err, data) => {
         if (err) return res.json(err);
         return res.json(data);
@@ -49,7 +57,7 @@ app.post('/bpr_db/login', (req, res) => {
             return res.json({ message: true });
         } else {
             return res.json({ message: false });
-        }
+        } 
     });
 })
 
