@@ -28,9 +28,17 @@ app.get('/bpr_db', (req, res) => {
 });
 
 //Process Data query
-app.get('/bpr_db/:indType', (req, res) => {
+// app.get('/bpr_db/:indType', (req, res) => {
+//     const tbl_name = req.params.indType;
+//     const sql = `SELECT * FROM ${tbl_name}`;
+//     client.query(sql, (err, data) => {
+//         if (err) return res.json(err);
+//         return res.json(data);
+//     });
+// })
+app.get('/bpr_db/r2r', (req, res) => {
     const tbl_name = req.params.indType;
-    const sql = `SELECT * FROM ${tbl_name}`;
+    const sql = `SELECT * FROM r2r`;
     client.query(sql, (err, data) => {
         if (err) return res.json(err);
         return res.json(data);
