@@ -5,12 +5,12 @@ require('dotenv').config();
 const app = express();
 const path = require('path');
 
-app.use(express.static(path.join(__dirname + "/public/build")));
+// app.use(express.static(path.join(__dirname + "/public/build")));
 app.use(express.json());
 app.use(cors());
 
 const client = new Client({
-    host: process.env.DATABASE_HOST1,
+    host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     port: process.env.DATABASE_PORT,
     password: process.env.DATABASE_PASSWORD,
