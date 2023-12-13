@@ -15,7 +15,7 @@ const client = new Client({
     port: process.env.DATABASE_PORT,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
-    ssl: false
+    ssl: true
 });
 
 client.connect()
@@ -27,18 +27,10 @@ app.get('/bpr_db', (req, res) => {
     return res.json("From Backend side");
 });
 
-//Process Data query
-// app.get('/bpr_db/:indType', (req, res) => {
-//     const tbl_name = req.params.indType;
-//     const sql = `SELECT * FROM ${tbl_name}`;
-//     client.query(sql, (err, data) => {
-//         if (err) return res.json(err);
-//         return res.json(data);
-//     });
-// })
-app.get('/bpr_db/r2r', (req, res) => {
+// Process Data query
+app.get('/bpr_db/:indType', (req, res) => {
     const tbl_name = req.params.indType;
-    const sql = `SELECT * FROM r2r`;
+    const sql = `SELECT * FROM ${tbl_name}`;
     client.query(sql, (err, data) => {
         if (err) return res.json(err);
         return res.json(data);
