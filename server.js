@@ -17,6 +17,16 @@ const client = new Client({
     database: process.env.DATABASE_NAME,
     ssl: true
 });
+
+console.log("Database Connection Parameters:", {
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    port: process.env.DATABASE_PORT,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
+    ssl: true
+});
+
 console.log("Datatbase Connection Started");
 client.connect()
 .then(() => console.log('Database connected'))
