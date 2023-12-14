@@ -9,13 +9,17 @@ const path = require('path');
 app.use(express.json());
 app.use(cors());
 
+// const client = new Client({
+//     host: process.env.DATABASE_HOST,
+//     user: process.env.DATABASE_USER,
+//     port: process.env.DATABASE_PORT,
+//     password: process.env.DATABASE_PASSWORD,
+//     database: process.env.DATABASE_NAME,
+//     ssl: true
+// });
+
 const client = new Client({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    port: process.env.DATABASE_PORT,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME,
-    ssl: true
+    connectionString: `postgres://${process.env.DATABASE_USER}:${DATABASE_PASSWORD}${DATABASE_HOST}/${DATABASE_NAME}?ssl=true`
 });
 
 console.log("Database Connection Parameters:", {
