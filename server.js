@@ -17,10 +17,11 @@ const client = new Client({
     database: process.env.DATABASE_NAME,
     ssl: true
 });
-
+console.log("Datatbase Connection Started");
 client.connect()
 .then(() => console.log('Database connected'))
 .catch(err => console.error('Error connecting to database', err));
+console.log("Datatbase Connection End");
 
 //Check Server is on
 app.get('/bpr_db', (req, res) => {
