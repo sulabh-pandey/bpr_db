@@ -9,30 +9,21 @@ const path = require('path');
 app.use(express.json());
 app.use(cors());
 
-// const client = new Client({
-//     host: process.env.DATABASE_HOST,
-//     user: process.env.DATABASE_USER,
-//     port: process.env.DATABASE_PORT,
-//     password: process.env.DATABASE_PASSWORD,
-//     database: process.env.DATABASE_NAME,
-//     ssl: true
-// });
-
 const client = new Client({
-    connectionString: `postgres://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}?ssl=true`
-    // ssl  : {
-    //   ca : fs.readFileSync('<path to CA cert file>')
-    // }
-  })
-
-console.log("Database Connection Parameters:", {
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     port: process.env.DATABASE_PORT,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
-    ssl: true
+    ssl: false
 });
+
+// const client = new Client({
+//     connectionString: `postgres://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}?ssl=true`
+//     // ssl  : {
+//     //   ca : fs.readFileSync('<path to CA cert file>')
+//     // }
+//   })
 
 console.log("Datatbase Connection Started");
 client.connect()
