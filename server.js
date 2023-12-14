@@ -19,8 +19,11 @@ app.use(cors());
 // });
 
 const client = new Client({
-    connectionString: `postgres://${process.env.DATABASE_USER}:${DATABASE_PASSWORD}${DATABASE_HOST}/${DATABASE_NAME}?ssl=true`
-});
+    connectionString: `postgres://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}?ssl=true`
+    // ssl  : {
+    //   ca : fs.readFileSync('<path to CA cert file>')
+    // }
+  })
 
 console.log("Database Connection Parameters:", {
     host: process.env.DATABASE_HOST,
