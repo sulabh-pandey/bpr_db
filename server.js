@@ -9,6 +9,7 @@ const path = require('path');
 app.use(express.json());
 app.use(cors());
 
+//Database Connection
 const client = new Client({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
